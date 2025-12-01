@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Current File",
+            "type": "cppdbg",
+            "request": "launch",
+            // "program": "${workspaceFolder}\\build\\bin\\${fileBasenameNoExtension}.exe",
+            // "args": [],
+            "program": "cmd",  // 使用 cmd 启动
+            "args": [
+                "/c",
+                "start",
+                "cmd",
+                "/k",
+                "\"${workspaceFolder}\\build\\bin\\${fileBasenameNoExtension}.exe\""  //提前配置好文件结构
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            // "console": "externalTerminal",
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:\\Coding\\C++\\MinGW\\bin\\gcc\\bin\\gdb.exe", //编译器的路径
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build with g++",  // 编译前自动执行构建任务
+            "logging": {
+                "moduleLoad": false
+            }
+        }
+    ]
+}
